@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import graphic from './graphic.svg'
 
 export const Header = () => {
     return (
-        <div>
-
-        </div>
+        <header>
+            <img src={graphic} alt="img" />
+        </header>
     )
 }
