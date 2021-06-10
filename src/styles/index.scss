@@ -1,5 +1,4 @@
 @import "./colors";
-@import "./header";
 @import "./font-size";
 @import "./sizes";
 
@@ -17,33 +16,75 @@
   }
 }
 
-$shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+$shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
 
 body {
   background-color: white;
   font-family: sans-serif;
   margin: 0;
 }
-.App {
-  @include flexCenter(row, nowrap);
-}
-
 .container {
-  width: 60%;
-  background-color: white;
-  border-radius: 60px 0px 0rem 60px;
-  box-shadow: $shadow;
-  position: absolute;
-  right: 0;
-  top: 0;
-  max-height: 100vh;
-  min-height: 100vh;
-  .datum {
-    font-size: size(datum);
-    color: $secondary-color;
-  }
-
+  display: flex;
+  width: 100%;
   @include mobil {
     flex-direction: column;
+  }
+
+  .header {
+    flex: 0.5;
+    @include mobil {
+      flex: 1;
+    }
+    .head {
+      width: 100%;
+      box-shadow: $shadow;
+      border-radius: 0px 25px 25px 0px;
+      min-height: 100vh;
+      @include mobil {
+        border-radius: 0;
+        min-height: 20vh;
+      }
+      .pocasie__obrazok {
+        width: 100%;
+        object-fit: cover;
+        object-position: right;
+        overflow: hidden;
+        border-radius: 0px 25px 25px 0px;
+        min-height: 99.6vh;
+        @include mobil {
+          border-radius: 0;
+          min-height: 20vh;
+        }
+      }
+    }
+  }
+  .pocasie {
+    flex: 0.5;
+    @include mobil {
+      flex: 1;
+    }
+    .weather {
+      height: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      .content {
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  .datum {
+    color: $secondary;
+    font-weight: $lighter;
   }
 }

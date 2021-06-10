@@ -4,9 +4,13 @@ import { Header } from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Weather />
+    <div className="container">
+      <div className="header">
+        <Header />
+      </div>
+      <div className="pocasie">
+        <Weather />
+      </div>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import graphic from './graphic.svg'
 
 export const Header = () => {
     return (
-        <header>
-            <img src={graphic} alt="img" />
+        <header className="head">
+            <img className="pocasie__obrazok" src={graphic} alt="img" />
         </header>
     )
 }

@@ -5,6 +5,7 @@ $font-size: (
   "datum": 1.2rem,
   "mesto": 1.3rem,
 );
+$light: lighter;
 
 @function size($font-sizeName) {
   @return map-get($font-size, $font-sizeName);
