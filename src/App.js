@@ -1,13 +1,12 @@
 import React from 'react';
+import { Weather } from './components/Body/Weather';
 import { Header } from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className='container'>
-        <p className='datum'>Hello motherfucker</p>
-      </div>
+      <Weather />
     </div>
   );
 }

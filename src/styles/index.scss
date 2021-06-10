@@ -1,6 +1,22 @@
 @import "./colors";
 @import "./header";
 @import "./font-size";
+@import "./sizes";
+
+@mixin flexCenter($direction, $wrap) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin mobil {
+  @media (max-width: $mobil) {
+    @content;
+  }
+}
+
 $shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
 
 body {
@@ -8,14 +24,26 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
+.App {
+  @include flexCenter(row, nowrap);
+}
 
 .container {
-  width: 100%;
+  width: 60%;
   background-color: white;
-  border-radius: 25rem 25rem 0rem 0rem;
+  border-radius: 60px 0px 0rem 60px;
   box-shadow: $shadow;
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-height: 100vh;
+  min-height: 100vh;
   .datum {
     font-size: size(datum);
     color: $secondary-color;
+  }
+
+  @include mobil {
+    flex-direction: column;
   }
 }
