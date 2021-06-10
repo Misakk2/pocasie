@@ -83,8 +83,27 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  align-items: center;
   .datum {
     color: $secondary;
-    font-weight: $lighter;
+    font-weight: map-get($font-weight, light);
+    font-size: size(datum);
+  }
+  a {
+    background-color: rgba(13, 159, 234, 0.08);
+    color: $primary;
+    font-size: size(datum);
+    border: 0;
+    padding: 1.1rem;
+    border-radius: 25px;
+    transition: ease-in 200ms;
+    text-decoration: none;
+    &:hover {
+      background: darken(50%);
+    }
+  }
+
+  .weather-box {
+    margin-top: 2rem;
   }
 }

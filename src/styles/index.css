@@ -114,9 +114,31 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .bar .datum {
   color: #aaaaaa;
+  font-weight: 200;
+  font-size: 1.1rem;
+}
+
+.bar a {
+  background-color: rgba(13, 159, 234, 0.08);
+  color: #0da0ea;
+  font-size: 1.1rem;
+  border: 0;
+  padding: 1.1rem;
+  border-radius: 25px;
+  -webkit-transition: ease-in 200ms;
+  transition: ease-in 200ms;
+  text-decoration: none;
+}
+
+.bar a:hover {
+  background-color: rgba(13, 159, 234, 0.15);
+  color: #085e89;
 }
 /*# sourceMappingURL=index.css.map */
