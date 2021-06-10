@@ -1,0 +1,11 @@
+$font-size: (
+  "hlavny": 3rem,
+  "popis": 1rem,
+  "hodnoty": 1.5rem,
+  "datum": 1.2rem,
+  "mesto": 1.3rem,
+);
+
+@function size($font-sizeName) {
+  @return map-get($font-size, $font-sizeName);
+}
