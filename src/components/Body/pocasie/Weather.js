@@ -1,6 +1,7 @@
-import React from 'react'
-import { Bar } from './Components/Bar/Bar'
-import { WeatherBody } from './Components/Weather/WeatherBody'
+import React from 'react';
+import { Bar } from './components/bar/Bar';
+import { WeatherBody } from './components/WeatherBody';
+
 
 export const Weather = () => {
     return (

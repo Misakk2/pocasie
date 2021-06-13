@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { CurrentContext } from '../../../../../context/CurrentContext';
 import location from './location.svg'
 
 export const Bar = () => {
     const [date, setDate] = useState(new Date());
+
+    const { currentCity, setCurrentCity } = useContext(CurrentContext);
+
     const den = { weekday: 'long' }
     const options = { year: 'numeric', month: 'short', day: 'numeric' }
     const dateBuilder = () => {
@@ -28,7 +32,7 @@ export const Bar = () => {
             <div className="datum">
                 <p>{dateBuilder(new Date())}</p>
             </div>
-            <a href="#">Košice, Slovakia <span><img src={location} alt /></span></a>
-        </div>
+            <a onClick={(e) => setCurrentCity('')} > {currentCity.city}, {currentCity.state} < span > <img src={location} alt /></span></a>
+        </div >
     )
 }

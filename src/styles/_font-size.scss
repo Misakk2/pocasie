@@ -1,15 +1,23 @@
 $font-size: (
-  "hlavny": 3rem,
+  "hlavny": 5rem,
   "popis": 1rem,
   "hodnoty": 1.5rem,
   "datum": 1.1rem,
+  "datum-mobil": 1rem,
 );
 
 $font-weight: (
+  "ultra-light": 100,
   "light": 200,
+  "lighter-regular": 300,
+  "regular": 400,
   "bold": 600,
 );
 
 @function size($font-sizeName) {
   @return map-get($font-size, $font-sizeName);
+}
+
+@function weight($font-weightName) {
+  @return map-get($font-weight, $font-weightName);
 }

@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import "./styles/index.css"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CityContextProvider from './context/CityContext';
+import CurrentContextProvider from './context/CurrentContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CityContextProvider >
+      <CurrentContextProvider>
+        <App />
+      </CurrentContextProvider>
+    </CityContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

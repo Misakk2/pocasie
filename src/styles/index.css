@@ -1,6 +1,6 @@
 body {
   background-color: white;
-  font-family: sans-serif;
+  font-family: "Barlow", sans-serif;
   margin: 0;
 }
 
@@ -12,6 +12,15 @@ body {
 }
 
 @media (max-width: 800px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -49,6 +58,13 @@ body {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .container .header .head {
+    border-radius: 0;
+    min-height: 20vh;
+  }
+}
+
 .container .header .head .pocasie__obrazok {
   width: 100%;
   -o-object-fit: cover;
@@ -63,7 +79,20 @@ body {
 @media (max-width: 800px) {
   .container .header .head .pocasie__obrazok {
     border-radius: 0;
-    min-height: 20vh;
+    -o-object-position: top;
+       object-position: top;
+    min-height: 35vh;
+    max-height: 35vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container .header .head .pocasie__obrazok {
+    border-radius: 0;
+    -o-object-position: top;
+       object-position: top;
+    min-height: 35vh;
+    max-height: 35vh;
   }
 }
 
@@ -74,6 +103,14 @@ body {
 }
 
 @media (max-width: 800px) {
+  .container .pocasie {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .container .pocasie {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -106,23 +143,88 @@ body {
           flex-direction: column;
 }
 
+@media (max-width: 800px) {
+  .container .pocasie .weather .content {
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: white;
+    margin-top: -3.3vh;
+    -webkit-box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+    max-height: 100%;
+    min-height: 66vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container .pocasie .weather .content {
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: white;
+    margin-top: -2vh;
+    -webkit-box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+    max-height: 100%;
+    min-height: 66vh;
+  }
+}
+
 .bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-top: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
+@media (max-width: 800px) {
+  .bar {
+    margin-top: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bar {
+    margin-top: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
 .bar .datum {
-  color: #aaaaaa;
-  font-weight: 200;
+  color: #666666;
+  font-weight: 400;
   font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+  .bar .datum {
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin-right: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bar .datum {
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin-right: 0.4rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .bar .datum {
+    font-size: 0.8rem;
+  }
 }
 
 .bar a {
@@ -137,8 +239,156 @@ body {
   text-decoration: none;
 }
 
+@media (max-width: 800px) {
+  .bar a {
+    font-size: 1rem;
+    border-radius: 0px 25px 0px 25px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bar a {
+    font-size: 1rem;
+    border-radius: 0px 25px 0px 25px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 390px) {
+  .bar a {
+    font-size: 0.8rem;
+  }
+}
+
 .bar a:hover {
   background-color: rgba(13, 159, 234, 0.15);
-  color: #085e89;
+}
+
+.weather-box {
+  margin-top: 4rem;
+}
+
+.weather-box .weather-actual {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .weather-box .weather-actual {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (max-width: 800px) {
+  .weather-box {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .weather-box {
+    margin-top: 0;
+  }
+}
+
+.weather-box .value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 6rem;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .weather-box .value {
+    padding: 0.9rem;
+    margin-top: 0;
+  }
+}
+
+.weather-box .value p {
+  padding: 0;
+  margin: 0;
+}
+
+.weather-box .value h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.weather-box .value .teplota {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
+.weather-box .value .teplota p {
+  font-size: 2rem;
+  color: #666666;
+  font-weight: 400;
+}
+
+.weather-box .value .temp {
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.dayTemp {
+  color: #666666;
+  margin: -1rem;
+}
+
+.value-weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=index.css.map */
