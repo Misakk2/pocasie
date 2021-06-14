@@ -10,7 +10,7 @@ export const Search = () => {
         <div className="searchBox">
             <h3>Location</h3>
             <div className="search">
-                <input className="searchBar" type="text" onChange={e => { setSearch(e.target.value) }} />
+                <input className="searchBar" placeholder="Search city ..." type="text" onChange={e => { setSearch(e.target.value) }} />
                 <div className="cities">
                     <ul>
                         {city.filter(mesto => {
@@ -21,7 +21,9 @@ export const Search = () => {
                             }
                         }).map(mesto => {
                             return (
-                                <li onClick={(e) => setCurrentCity({ city: mesto.nazov, state: mesto.country, lat: mesto.lat, lon: mesto.lon })} key={mesto.id}>{mesto.nazov}</li>
+                                <li onClick={(e) => setCurrentCity({ city: mesto.nazov, state: mesto.country, lat: mesto.lat, lon: mesto.lon })} key={mesto.id}>
+                                    {mesto.nazov}
+                                </li>
                             )
                         })}
                     </ul>

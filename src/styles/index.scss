@@ -21,7 +21,7 @@
   }
 }
 @mixin tablet {
-  @media screen and (max-width: $tablet) {
+  @media screen and (min-width: $mobil), (max-width: $tablet) {
     @content;
   }
 }
@@ -237,7 +237,7 @@ body {
 }
 
 .dayTemp {
-  color: $secondary;
+  color: $tercial;
   margin: -1rem;
 }
 
@@ -245,4 +245,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  h3 {
+    color: $tercial;
+    font-weight: map-get($font-weight, regular);
+    font-size: map-get($font-size, popis);
+  }
+
+  .searchBar {
+    background-color: #f3f3f3;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+  }
 }

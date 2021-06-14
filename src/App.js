@@ -14,8 +14,9 @@ function App() {
       </div>
       <div className="pocasie">
         {currentCity.city ?
-          (<Weather />) : (
-            <Search />)
+          (<Weather />)
+          :
+          (<Search />)
         }
       </div>
     </div>

@@ -37,6 +37,8 @@ export const WeatherBody = () => {
     }, [currentCity]);
 
     const iconUrl = `http://openweathermap.org/img/wn/${weather?.data?.weather[0].icon}.png`;
+    const imageUrl = "http://openweathermap.org/img/wn/";
+    const imageEnd = ".png";
 
     return (
         <div className="weather-box">
@@ -103,7 +105,7 @@ export const WeatherBody = () => {
                     days?.data?.daily.slice(0, 3)?.map(day =>
                         <div key={day?.id} className="value">
                             <div className="value-weather">
-                                <img src={daytime} alt="daytime" />
+                                <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
                                 <p>{new Date(day?.dt * 1000).toLocaleDateString(undefined, {})}</p>
                                 <div>
                                     <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
