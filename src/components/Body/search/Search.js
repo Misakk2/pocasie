@@ -9,7 +9,7 @@ const ke = `https://api.openweathermap.org/data/2.5/weather?q=Košice,SK&units=m
 const mi = `https://api.openweathermap.org/data/2.5/weather?q=Michalovce,SK&units=metric&appid=${api}`;
 const he = `https://api.openweathermap.org/data/2.5/weather?q=Humenne,SK&units=metric&appid=${api}`;
 const so = `https://api.openweathermap.org/data/2.5/weather?q=Sobrance,SK&units=metric&appid=${api}`;
-const ko = `https://api.openweathermap.org/data/2.5/weather?q=Koromľa,SK&units=metric&appid=${api}`;
+const ko = `https://api.openweathermap.org/data/2.5/weather?q=Koromľa,Slovakia&units=metric&appid=${api}`;
 
 export const Search = () => {
     const [search, setSearch] = useState('');
@@ -27,6 +27,8 @@ export const Search = () => {
         ]).then(
             axios.spread((...vsetkyData) => {
                 setCity(vsetkyData)
+                setCity()
+                console.log(vsetkyData[1].data.name = "Košice")
             })
         )
     }
