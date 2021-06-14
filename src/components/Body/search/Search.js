@@ -9,7 +9,7 @@ const ke = `https://api.openweathermap.org/data/2.5/weather?q=Košice,SK&units=m
 const mi = `https://api.openweathermap.org/data/2.5/weather?q=Michalovce,SK&units=metric&appid=${api}`;
 const he = `https://api.openweathermap.org/data/2.5/weather?q=Humenne,SK&units=metric&appid=${api}`;
 const so = `https://api.openweathermap.org/data/2.5/weather?q=Sobrance,SK&units=metric&appid=${api}`;
-const ko = `https://api.openweathermap.org/data/2.5/weather?q=Koromľa,Slovakia&units=metric&appid=${api}`;
+const ko = `https://api.openweathermap.org/data/2.5/weather?q=Koromľa,SK&units=metric&appid=${api}`;
 
 export const Search = () => {
     const [search, setSearch] = useState('');
@@ -26,7 +26,6 @@ export const Search = () => {
             axios.get([he]),
         ]).then(
             axios.spread((...vsetkyData) => {
-                console.log(vsetkyData)
                 setCity(vsetkyData)
             })
         )
@@ -46,14 +45,21 @@ export const Search = () => {
                     <ul>
                         {city.filter(mesto => {
                             if (search === "") {
+                                console.log()
                                 return mesto
-                            } else if (mesto?.nazov?.toLowerCase().includes(search.toLowerCase())) {
+                            } else if (mesto?.data.name?.toLowerCase().includes(search.toLowerCase())) {
                                 return mesto
                             }
                         }).map(mesto => {
                             return (
-                                <li onClick={(e) => setCurrentCity({ city: mesto.nazov, state: mesto.country, lat: mesto.lat, lon: mesto.lon })} key={mesto.id}>
-                                    {mesto.nazov}
+                                <li onClick={(e) => setCurrentCity({
+                                    city: mesto.data.name,
+                                    state: mesto.data.sys.country = "Slovakia",
+                                    lat: mesto.data.coord.lat,
+                                    lon: mesto.data.coord.lon
+                                })} key={mesto.id}
+                                >
+                                    <p>{mesto.data.name}</p>  <p>{Math.round(mesto.data.main.temp)}°C</p>
                                 </li>
                             )
                         })}
