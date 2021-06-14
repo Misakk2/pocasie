@@ -467,5 +467,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
 /*# sourceMappingURL=index.css.map */
