@@ -412,6 +412,19 @@ body {
   max-height: 100%;
 }
 
+@media (max-width: 800px) {
+  .searchBox {
+    min-height: 74.5vh;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .searchBox .search {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -456,6 +469,12 @@ body {
   margin-top: 2rem;
 }
 
+@media (max-width: 800px) {
+  .cities ul {
+    margin-top: 0.5rem;
+  }
+}
+
 .cities ul li {
   color: #666666;
   font-size: 1.1rem;
@@ -470,5 +489,13 @@ body {
           justify-content: space-between;
   cursor: pointer;
   margin-top: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .cities ul li {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-top: 0.3rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -256,6 +256,13 @@ body {
   justify-content: center;
   min-height: 100vh;
   max-height: 100%;
+  @include mobil {
+    min-height: 74.5vh;
+    justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    box-shadow: $shadow;
+  }
 
   .search {
     display: flex;
@@ -288,6 +295,9 @@ body {
     list-style: none;
     padding: 0;
     margin-top: 2rem;
+    @include mobil {
+      margin-top: 0.5rem;
+    }
     li {
       color: $secondary;
       font-size: map-get($font-size, datum);
@@ -298,6 +308,11 @@ body {
       justify-content: space-between;
       cursor: pointer;
       margin-top: 0.5rem;
+      @include mobil {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        margin-top: 0.3rem;
+      }
     }
   }
 }
