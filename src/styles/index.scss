@@ -21,7 +21,7 @@
   }
 }
 @mixin tablet {
-  @media screen and (min-width: $mobil), (max-width: $tablet) {
+  @media screen and (max-width: $tablet) {
     @content;
   }
 }
@@ -253,16 +253,50 @@ body {
   flex-direction: column;
   background-color: white;
   width: 100%;
+  border-radius: 25px 25px 0px 0px;
+  margin-top: -9rem;
+  min-height: 82vh;
+  max-height: 100%;
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .searchBar {
+      background-color: #f3f3f3;
+      border: none;
+      padding: 1rem;
+      width: 80%;
+      font-size: map-get($font-size, popis);
+      border-radius: 5px;
+      color: $tercial;
+    }
+  }
   h3 {
     color: $tercial;
     font-weight: map-get($font-weight, regular);
     font-size: map-get($font-size, popis);
-  }
-
-  .searchBar {
-    background-color: #f3f3f3;
-    border: none;
     padding: 1rem;
-    width: 100%;
+  }
+}
+
+.cities {
+  width: 80%;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    li {
+      color: $secondary;
+      font-size: map-get($font-size, datum);
+      width: 100%;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

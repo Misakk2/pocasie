@@ -1,8 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const CityContext = createContext();
 
+
 const CityContextProvider = (props) => {
+
     const [city, setCity] = useState([
         { nazov: 'Bratislava', lat: '48.1482', lon: "17.1067", country: 'Slovakia', id: '1' },
         { nazov: 'Košice', lat: '48.6667', lon: "21.3333", country: 'Slovakia', id: '2' },
