@@ -27,14 +27,14 @@ export const Search = () => {
         ]).then(
             axios.spread((...vsetkyData) => {
                 setCity(vsetkyData)
-                setCity()
-                console.log(vsetkyData[1].data.name = "Košice")
+
             })
         )
     }
 
     useEffect(() => {
         getCityWeathers()
+        setCity(...city, city[1].data.name = "Košice")
     }, [])
 
 
