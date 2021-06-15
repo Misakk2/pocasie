@@ -9,6 +9,9 @@ import sunset from './ikonky/sunset.svg';
 import daytime from './ikonky/sand-clock.svg';
 import axios from 'axios';
 import { CurrentContext } from '../../../../context/CurrentContext';
+import { WeatherBox } from './row/WeatherBox';
+import { ValueBox } from './row/ValueBox';
+import { WeatherValue } from './row/WeatherValue';
 
 
 const api = "4c6860d2d483f48435b92e68b18ab461";
@@ -41,80 +44,78 @@ export const WeatherBody = () => {
     const imageEnd = ".png";
 
     return (
-        <div className="weather-box">
-            <div className="weather-actual">
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={iconUrl} alt={weather?.data?.weather[0].icon} />
-                        <p>{weather?.data?.weather[0]?.main}</p>
-                    </div>
+        <WeatherBox >
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={iconUrl} alt={weather?.data?.weather[0].icon} />
+                    <p>{weather?.data?.weather[0]?.main}</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <div className="teplota">
+                    <h3 className="temp">{Math.round(weather?.data?.main.temp)}</h3><p>°C</p>
                 </div>
-                <div className="value">
-                    <div className="teplota">
-                        <h3 className="temp">{Math.round(weather?.data?.main.temp)}</h3><p>°C</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_max)}°C <img src={arrowUp} alt="arrow" /></p></div>
-                    <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_min)}°C <img src={arrowDown} alt="arrow" /></p></div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={humidity} alt="humidity" />
-                        <p>{weather?.data?.main.humidity}%</p>
-                        <p className="description">Humidity</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={barometer} alt="barometer" />
-                        <p>{weather?.data?.main.pressure}mBar</p>
-                        <p className="description">Pressure</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={wind} alt="wind" />
-                        <p>{weather?.data?.wind?.speed}km/h</p>
-                        <p className="description">Wind</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={sunrise} alt="sunrise" />
-                        <p>{new Date(weather?.data?.sys?.sunrise * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
-                        <p className="description">Sunrise</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={sunset} alt="sunset" />
-                        <p>{new Date(weather?.data?.sys?.sunset * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
-                        <p className="description">Sunset</p>
-                    </div>
-                </div>
-                <div className="value">
-                    <div className="value-weather" key={weather?.data?.weather[0].id}>
-                        <img src={daytime} alt="daytime" />
-                        <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
-                        <p className="description">Daytime</p>
-                    </div>
-                </div>
+            </ValueBox>
+            <ValueBox>
+                <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_max)}°C <img src={arrowUp} alt="arrow" /></p></div>
+                <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_min)}°C <img src={arrowDown} alt="arrow" /></p></div>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={humidity} alt="humidity" />
+                    <p>{weather?.data?.main.humidity}%</p>
+                    <p className="description">Humidity</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={barometer} alt="barometer" />
+                    <p>{weather?.data?.main.pressure}mBar</p>
+                    <p className="description">Pressure</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={wind} alt="wind" />
+                    <p>{weather?.data?.wind?.speed}km/h</p>
+                    <p className="description">Wind</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={sunrise} alt="sunrise" />
+                    <p>{new Date(weather?.data?.sys?.sunrise * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <p className="description">Sunrise</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={sunset} alt="sunset" />
+                    <p>{new Date(weather?.data?.sys?.sunset * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <p className="description">Sunset</p>
+                </WeatherValue>
+            </ValueBox>
+            <ValueBox>
+                <WeatherValue key={weather?.data?.weather[0].id}>
+                    <img src={daytime} alt="daytime" />
+                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <p className="description">Daytime</p>
+                </WeatherValue>
+            </ValueBox>
 
-                {!days?.data?.length ?
-                    days?.data?.daily.slice(0, 3)?.map(day =>
-                        <div key={day?.id} className="value">
-                            <div className="value-weather">
-                                <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
-                                <p>{new Date(day?.dt * 1000).toLocaleDateString(undefined, {})}</p>
-                                <div>
-                                    <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
-                                    <p className="description">{Math.round(day.temp.min)}<img src={arrowDown} alt="arrow" /></p>
-                                </div>
+            {!days?.data?.length ?
+                days?.data?.daily.slice(0, 3)?.map(day =>
+                    <ValueBox key={day?.id}>
+                        <WeatherValue>
+                            <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
+                            <p>{new Date(day?.dt * 1000).toLocaleDateString(undefined, {})}</p>
+                            <div>
+                                <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
+                                <p className="description">{Math.round(day.temp.min)}<img src={arrowDown} alt="arrow" /></p>
                             </div>
-                        </div>
-                    ) : <></>}
-            </div>
-        </div>
+                        </WeatherValue>
+                    </ValueBox>
+                ) : <></>}
+        </WeatherBox>
     )
 }

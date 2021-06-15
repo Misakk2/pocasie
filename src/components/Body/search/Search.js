@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CityContext } from '../../../context/CityContext';
 import { CurrentContext } from '../../../context/CurrentContext';
 import axios from 'axios';
+import { SearchBar } from './components/SearchBar';
+import { CitiesGroup } from './components/CitiesGroup';
 
 const api = "4c6860d2d483f48435b92e68b18ab461";
 const ba = `https://api.openweathermap.org/data/2.5/weather?q=Bratislava,SK&units=metric&appid=${api}&lang=sk`;
@@ -41,31 +43,29 @@ export const Search = () => {
         <div className="searchBox">
             <h3>Location</h3>
             <div className="search">
-                <input className="searchBar" placeholder="Search city ..." type="text" onChange={e => { setSearch(e.target.value) }} />
-                <div className="cities">
-                    <ul>
-                        {city.filter(mesto => {
-                            if (search === "") {
-                                console.log()
-                                return mesto
-                            } else if (mesto?.data.name?.toLowerCase().includes(search.toLowerCase())) {
-                                return mesto
-                            }
-                        }).map(mesto => {
-                            return (
-                                <li onClick={(e) => setCurrentCity({
-                                    city: mesto.data.name,
-                                    state: mesto.data.sys.country = "Slovakia",
-                                    lat: mesto.data.coord.lat,
-                                    lon: mesto.data.coord.lon
-                                })} key={mesto.id}
-                                >
-                                    <p>{mesto.data.name}</p>  <p>{Math.round(mesto.data.main.temp)}°C</p>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                <SearchBar onChange={e => { setSearch(e.target.value) }} />
+                <CitiesGroup>
+                    {city.filter(mesto => {
+                        if (search === "") {
+                            console.log()
+                            return mesto
+                        } else if (mesto?.data.name?.toLowerCase().includes(search.toLowerCase())) {
+                            return mesto
+                        }
+                    }).map(mesto => {
+                        return (
+                            <li onClick={(e) => setCurrentCity({
+                                city: mesto.data.name,
+                                state: mesto.data.sys.country = "Slovakia",
+                                lat: mesto.data.coord.lat,
+                                lon: mesto.data.coord.lon
+                            })} key={mesto.id}
+                            >
+                                <p>{mesto.data.name}</p>  <p>{Math.round(mesto.data.main.temp)}°C</p>
+                            </li>
+                        )
+                    })}
+                </CitiesGroup>
             </div>
         </div>
     )

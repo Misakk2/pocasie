@@ -53,11 +53,11 @@ body {
       box-shadow: $shadow;
       border-radius: 0px 25px 25px 0px;
       min-height: 100vh;
-      @include mobil {
+      @include tablet {
         border-radius: 0;
         min-height: 20vh;
       }
-      @include tablet {
+      @include mobil {
         border-radius: 0;
         min-height: 20vh;
       }
@@ -68,13 +68,13 @@ body {
         overflow: hidden;
         border-radius: 0px 25px 25px 0px;
         min-height: 99.6vh;
-        @include mobil {
+        @include tablet {
           border-radius: 0;
           object-position: top;
           min-height: 35vh;
           max-height: 35vh;
         }
-        @include tablet {
+        @include mobil {
           border-radius: 0;
           object-position: top;
           min-height: 35vh;
@@ -85,10 +85,10 @@ body {
   }
   .pocasie {
     flex: 0.5;
-    @include mobil {
+    @include tablet {
       flex: 1;
     }
-    @include tablet {
+    @include mobil {
       flex: 1;
     }
     .weather {
@@ -102,20 +102,20 @@ body {
         margin: auto;
         display: flex;
         flex-direction: column;
-        @include mobil {
-          width: 100%;
-          border-radius: 25px 25px 0px 0px;
-          background-color: white;
-          margin-top: -3.3vh;
-          box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
-          max-height: 100%;
-          min-height: 66vh;
-        }
         @include tablet {
           width: 100%;
           border-radius: 25px 25px 0px 0px;
           background-color: white;
           margin-top: -2vh;
+          box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+          max-height: 100%;
+          min-height: 66vh;
+        }
+        @include mobil {
+          width: 100%;
+          border-radius: 25px 25px 0px 0px;
+          background-color: white;
+          margin-top: -3.3vh;
           box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
           max-height: 100%;
           min-height: 66vh;
@@ -130,24 +130,25 @@ body {
   justify-content: space-around;
   margin-top: 2rem;
   align-items: center;
-  @include mobil {
-    margin-top: 0;
-    justify-content: space-between;
-  }
   @include tablet {
     margin-top: 0;
     justify-content: space-between;
   }
+  @include mobil {
+    margin-top: 0;
+    justify-content: space-between;
+  }
+
   .datum {
     color: $secondary;
     font-weight: map-get($font-weight, regular);
     font-size: size(datum);
-    @include mobil {
+    @include tablet {
       font-size: size(datum-mobil);
       margin-left: 1rem;
       margin-right: 0.4rem;
     }
-    @include tablet {
+    @include mobil {
       font-size: size(datum-mobil);
       margin-left: 1rem;
       margin-right: 0.4rem;
@@ -165,12 +166,12 @@ body {
     border-radius: 25px;
     transition: ease-in 200ms;
     text-decoration: none;
-    @include mobil {
+    @include tablet {
       font-size: size(datum-mobil);
       border-radius: 0px 25px 0px 25px;
       font-weight: weight(bold);
     }
-    @include tablet {
+    @include mobil {
       font-size: size(datum-mobil);
       border-radius: 0px 25px 0px 25px;
       font-weight: weight(bold);
@@ -192,10 +193,10 @@ body {
       justify-content: space-between;
     }
   }
-  @include mobil {
+  @include tablet {
     margin-top: 0;
   }
-  @include tablet {
+  @include mobil {
     margin-top: 0;
   }
   .value {
@@ -209,9 +210,17 @@ body {
       padding: 0.9rem;
       margin-top: 0;
     }
+    @include xs-mobil {
+      padding: 0.5rem;
+    }
+
     p {
       padding: 0;
       margin: 0;
+      .desctiption {
+        font-size: map-get($font-size, xs-text);
+        color: $secondary;
+      }
     }
     h3 {
       padding: 0;
@@ -232,6 +241,9 @@ body {
       font-size: map-get($font-size, hlavny);
       line-height: 1;
       letter-spacing: -4px;
+      @include xs-mobil {
+        font-size: 3.5rem;
+      }
     }
   }
 }
@@ -256,6 +268,13 @@ body {
   justify-content: center;
   min-height: 100vh;
   max-height: 100%;
+  @include tablet {
+    min-height: 74.5vh;
+    justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    box-shadow: $shadow;
+  }
   @include mobil {
     min-height: 74.5vh;
     justify-content: start;
@@ -284,8 +303,15 @@ body {
   h3 {
     color: $tercial;
     font-weight: map-get($font-weight, regular);
-    font-size: map-get($font-size, popis);
+    font-size: map-get($font-size, hodnoty);
     padding: 1rem;
+
+    @include tablet {
+      font-size: map-get($font-size, hodnoty);
+    }
+    @include mobil {
+      font-size: map-get($font-size, popis);
+    }
   }
 }
 

@@ -51,14 +51,14 @@ body {
   min-height: 100vh;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .container .header .head {
     border-radius: 0;
     min-height: 20vh;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .container .header .head {
     border-radius: 0;
     min-height: 20vh;
@@ -76,7 +76,7 @@ body {
   min-height: 99.6vh;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .container .header .head .pocasie__obrazok {
     border-radius: 0;
     -o-object-position: top;
@@ -86,7 +86,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .container .header .head .pocasie__obrazok {
     border-radius: 0;
     -o-object-position: top;
@@ -102,7 +102,7 @@ body {
           flex: 0.5;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .container .pocasie {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -110,7 +110,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .container .pocasie {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -143,12 +143,12 @@ body {
           flex-direction: column;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .container .pocasie .weather .content {
     width: 100%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
-    margin-top: -3.3vh;
+    margin-top: -2vh;
     -webkit-box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
             box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
     max-height: 100%;
@@ -156,12 +156,12 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .container .pocasie .weather .content {
     width: 100%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
-    margin-top: -2vh;
+    margin-top: -3.3vh;
     -webkit-box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
             box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
     max-height: 100%;
@@ -181,7 +181,7 @@ body {
           align-items: center;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .bar {
     margin-top: 0;
     -webkit-box-pack: justify;
@@ -190,7 +190,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .bar {
     margin-top: 0;
     -webkit-box-pack: justify;
@@ -205,7 +205,7 @@ body {
   font-size: 1.1rem;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .bar .datum {
     font-size: 1rem;
     margin-left: 1rem;
@@ -213,7 +213,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .bar .datum {
     font-size: 1rem;
     margin-left: 1rem;
@@ -239,7 +239,7 @@ body {
   text-decoration: none;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .bar a {
     font-size: 1rem;
     border-radius: 0px 25px 0px 25px;
@@ -247,7 +247,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .bar a {
     font-size: 1rem;
     border-radius: 0px 25px 0px 25px;
@@ -294,13 +294,13 @@ body {
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .weather-box {
     margin-top: 0;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 800px) {
   .weather-box {
     margin-top: 0;
   }
@@ -339,9 +339,20 @@ body {
   }
 }
 
+@media (max-width: 390px) {
+  .weather-box .value {
+    padding: 0.5rem;
+  }
+}
+
 .weather-box .value p {
   padding: 0;
   margin: 0;
+}
+
+.weather-box .value p .desctiption {
+  font-size: 0.8rem;
+  color: #666666;
 }
 
 .weather-box .value h3 {
@@ -372,6 +383,12 @@ body {
   font-size: 5rem;
   line-height: 1;
   letter-spacing: -4px;
+}
+
+@media (max-width: 390px) {
+  .weather-box .value .temp {
+    font-size: 3.5rem;
+  }
 }
 
 .dayTemp {
@@ -410,6 +427,19 @@ body {
           justify-content: center;
   min-height: 100vh;
   max-height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .searchBox {
+    min-height: 74.5vh;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+  }
 }
 
 @media (max-width: 800px) {
@@ -455,8 +485,20 @@ body {
 .searchBox h3 {
   color: #999999;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.5rem;
   padding: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .searchBox h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .searchBox h3 {
+    font-size: 1rem;
+  }
 }
 
 .cities {
