@@ -50,7 +50,7 @@ export const Search = () => {
                         }
                     }).map(mesto => {
                         return (
-                            <li onClick={(e) => setCurrentCity({
+                            <li key={mesto.data.name + mesto.data.coord.lat} onClick={(e) => setCurrentCity({
                                 city: mesto.data.name,
                                 state: mesto.data.sys.country = "Slovakia",
                                 lat: mesto.data.coord.lat,

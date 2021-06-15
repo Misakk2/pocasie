@@ -33,11 +33,10 @@ export const WeatherBody = () => {
     }, [currentCity]);
 
 
-
-    const iconUrl = `http://openweathermap.org/img/wn/${weather?.data?.weather[0].icon}.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${weather?.data?.weather[0].icon}.png`;
 
     return (
-        <WeatherBox >
+        <WeatherBox key="weatherBox">
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
                     <img src={iconUrl} alt={weather?.data?.weather[0].icon} alt={weather?.data?.weather[0]?.main.toString()} />
