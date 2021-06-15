@@ -4,14 +4,9 @@ import { CurrentContext } from '../../../context/CurrentContext';
 import axios from 'axios';
 import { SearchBar } from './components/SearchBar';
 import { CitiesGroup } from './components/CitiesGroup';
+import requests from '../../../api/Api';
 
-const api = "4c6860d2d483f48435b92e68b18ab461";
-const ba = `https://api.openweathermap.org/data/2.5/weather?q=Bratislava,SK&units=metric&appid=${api}&lang=sk`;
-const ke = `https://api.openweathermap.org/data/2.5/weather?q=Košice,Sk&units=metric&appid=${api}&lang=sk`;
-const mi = `https://api.openweathermap.org/data/2.5/weather?q=Michalovce,SK&units=metric&appid=${api}&lang=sk`;
-const he = `https://api.openweathermap.org/data/2.5/weather?q=Humenne,SK&units=metric&appid=${api}&lang=sk`;
-const so = `https://api.openweathermap.org/data/2.5/weather?q=Sobrance,SK&units=metric&appid=${api}&lang=sk`;
-const ko = `https://api.openweathermap.org/data/2.5/weather?q=Koromľa,Slovakia&units=metric&appid=${api}&lang=sk`;
+
 
 export const Search = () => {
     const [search, setSearch] = useState('');
@@ -20,12 +15,12 @@ export const Search = () => {
 
     const getCityWeathers = () => {
         axios.all([
-            axios.get([ba]),
-            axios.get([he]),
-            axios.get([ko]),
-            axios.get([ke]),
-            axios.get([mi]),
-            axios.get([so]),
+            axios.get(requests.bratislava),
+            axios.get(requests.humenne),
+            axios.get(requests.koromla),
+            axios.get(requests.kosice),
+            axios.get(requests.michalovce),
+            axios.get(requests.sobrance),
         ]).then(
             axios.spread((...vsetkyData) => {
                 setCity(vsetkyData)

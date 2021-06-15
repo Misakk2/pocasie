@@ -12,6 +12,7 @@ import { CurrentContext } from '../../../../context/CurrentContext';
 import { WeatherBox } from './row/WeatherBox';
 import { ValueBox } from './row/ValueBox';
 import { WeatherValue } from './row/WeatherValue';
+import { DailyWeather } from './row/DailyWeather';
 
 
 const api = "4c6860d2d483f48435b92e68b18ab461";
@@ -19,7 +20,6 @@ const api = "4c6860d2d483f48435b92e68b18ab461";
 export const WeatherBody = () => {
     const [weather, setWeather] = useState({});
     const { currentCity } = useContext(CurrentContext);
-    const [days, setDays] = useState({});
     const options = { day: 'numeric' }
 
     useEffect(() => {
@@ -30,12 +30,7 @@ export const WeatherBody = () => {
         getWeather()
     }, [currentCity]);
 
-    useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${currentCity.lat}&lon=${currentCity.lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=${api}`)
-            .then(day => {
-                setDays(day);
-            })
-    }, [currentCity]);
+
 
     const iconUrl = `http://openweathermap.org/img/wn/${weather?.data?.weather[0].icon}.png`;
     const imageUrl = "http://openweathermap.org/img/wn/";
@@ -96,24 +91,11 @@ export const WeatherBody = () => {
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
                     <img src={daytime} alt="daytime" />
-                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { hours: "numeric" })}</p>
                     <p className="description">Daytime</p>
                 </WeatherValue>
             </ValueBox>
-
-            {!days?.data?.length ?
-                days?.data?.daily.slice(0, 3)?.map(day =>
-                    <ValueBox key={day?.id}>
-                        <div className="dailyWeather">
-                            <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
-                            <p>{new Date(day?.dt * 1000).toLocaleDateString("en-US", { weekday: 'short' })}, {new Date(day?.dt * 1000).toLocaleDateString("en-US", { day: 'numeric' })}</p>
-                            <div className="dailyWeatherTemp">
-                                <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
-                                <p className="description">{Math.round(day.temp.min)}<img src={arrowDown} alt="arrow" /></p>
-                            </div>
-                        </div>
-                    </ValueBox>
-                ) : <></>}
+            <DailyWeather />
         </WeatherBox>
     )
 }
