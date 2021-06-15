@@ -21,26 +21,26 @@ export const WeatherBody = () => {
     const [weather, setWeather] = useState({});
     const { currentCity } = useContext(CurrentContext);
     const options = { day: 'numeric' }
-
     useEffect(() => {
         async function getWeather() {
-            const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${currentCity.city},${currentCity.state}&units=metric&appid=${api}`)
-            setWeather(res)
+            if (currentCity.city !== undefined) {
+                const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${currentCity.city},${currentCity.state}&units=metric&appid=${api}`)
+                setWeather(res)
+            }
         }
         getWeather()
+
     }, [currentCity]);
 
 
 
     const iconUrl = `http://openweathermap.org/img/wn/${weather?.data?.weather[0].icon}.png`;
-    const imageUrl = "http://openweathermap.org/img/wn/";
-    const imageEnd = ".png";
 
     return (
         <WeatherBox >
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
-                    <img src={iconUrl} alt={weather?.data?.weather[0].icon} />
+                    <img src={iconUrl} alt={weather?.data?.weather[0].icon} alt={weather?.data?.weather[0]?.main.toString()} />
                     <p className="clouds">{weather?.data?.weather[0]?.main}</p>
                 </WeatherValue>
             </ValueBox>
@@ -50,8 +50,8 @@ export const WeatherBody = () => {
                 </div>
             </ValueBox>
             <ValueBox>
-                <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_max)}°C <img src={arrowUp} alt="arrow" /></p></div>
-                <div className="dayTemp"><p>{Math.round(weather?.data?.main.temp_min)}°C <img src={arrowDown} alt="arrow" /></p></div>
+                <div className="dayTemp"><p key={weather?.data?.main.temp_max}>{Math.round(weather?.data?.main.temp_max)}°C <img src={arrowUp} alt="arrow" /></p></div>
+                <div className="dayTemp"><p key={weather?.data?.main.temp_min}>{Math.round(weather?.data?.main.temp_min)}°C <img src={arrowDown} alt="arrow" /></p></div>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
@@ -75,21 +75,21 @@ export const WeatherBody = () => {
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
-                <WeatherValue key={weather?.data?.weather[0].id}>
+                <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.sys?.sunrise}>
                     <img src={sunrise} alt="sunrise" />
                     <p>{new Date(weather?.data?.sys?.sunrise * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
                     <p className="description">Sunrise</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
-                <WeatherValue key={weather?.data?.weather[0].id}>
+                <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.sys?.sunset}>
                     <img src={sunset} alt="sunset" />
                     <p>{new Date(weather?.data?.sys?.sunset * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
                     <p className="description">Sunset</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
-                <WeatherValue key={weather?.data?.weather[0].id}>
+                <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.dt}>
                     <img src={daytime} alt="daytime" />
                     <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
                     <p className="description">Daytime</p>

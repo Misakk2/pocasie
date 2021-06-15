@@ -12,13 +12,14 @@ const imageEnd = ".png";
 
 export const DailyWeather = () => {
     const [days, setDays] = useState({});
-    const [weather, setWeather] = useState({});
     const { currentCity } = useContext(CurrentContext);
     useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${currentCity.lat}&lon=${currentCity.lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=${api}`)
-            .then(day => {
-                setDays(day);
-            })
+        if (currentCity.city !== undefined) {
+            axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${currentCity.lat}&lon=${currentCity.lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=${api}`)
+                .then(day => {
+                    setDays(day);
+                })
+        }
     }, [currentCity]);
 
     return (
@@ -27,7 +28,7 @@ export const DailyWeather = () => {
                 days?.data?.daily.slice(0, 3)?.map(day =>
                     <ValueBox key={day?.id}>
                         <div className="dailyWeather">
-                            <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
+                            <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main.toString()} />
                             <p>{new Date(day?.dt * 1000).toLocaleDateString("en-US", { weekday: 'short' })}, {new Date(day?.dt * 1000).toLocaleDateString("en-US", { day: 'numeric' })}</p>
                             <div className="dailyWeatherTemp">
                                 <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
