@@ -8,15 +8,11 @@ import { useTransition, animated } from 'react-spring';
 function App() {
   const { currentCity } = useContext(CurrentContext);
   const transition = useTransition(currentCity.city == undefined, {
-    from: { y: 800, opacity: 0 },
-    enter: { y: 0, opacity: 1 },
-    leave: { y: 800, opacity: 0 },
+    from: { y: 800, Zindex: 1000, display: 'none' },
+    enter: { y: 0, Zindex: 1000, display: 'block' },
+    leave: { y: 800, Zindex: 1000, display: 'none' },
   });
-  const weatherTransition = useTransition(currentCity.city !== undefined, {
-    from: { y: 800, opacity: 0 },
-    enter: { y: 0, opacity: 1 },
-    leave: { y: 800, opacity: 0 },
-  })
+
 
   return (
     <div className="container">
@@ -25,12 +21,11 @@ function App() {
       </div>
       <div className="pocasie">
         {transition((style, item) =>
-          item ? <animated.div style={style}> <Search key="search" /></animated.div> : ""
+          item ? <animated.div style={style}> <Search key="search" /></animated.div> : ''
         )}
-        {weatherTransition((style, item) =>
-          item ? <animated.div style={style}> <Weather /></animated.div> : ""
-        )}
-
+        {currentCity.city !== undefined ?
+          <Weather /> : <Weather style={{ display: 'none' }} />
+        }
       </div>
     </div>
   );
