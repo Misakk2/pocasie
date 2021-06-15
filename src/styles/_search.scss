@@ -1,0 +1,109 @@
+@mixin flex($justify, $direction, $wrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin mobil {
+  @media (max-width: $mobil) {
+    @content;
+  }
+}
+@mixin xs-mobil {
+  @media (max-width: $xs-mobil) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
+  justify-content: center;
+  min-height: 100vh;
+  max-height: 100%;
+  @include tablet {
+    min-height: 74.5vh;
+    justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    box-shadow: $shadow;
+  }
+  @include mobil {
+    min-height: 74.5vh;
+    justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    box-shadow: $shadow;
+  }
+  h3 {
+    color: $tercial;
+    font-weight: map-get($font-weight, bold);
+    font-size: map-get($font-size, hodnoty);
+    padding: 1rem;
+
+    @include tablet {
+      font-size: map-get($font-size, hodnoty);
+    }
+    @include mobil {
+      font-size: map-get($font-size, popis);
+    }
+  }
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .searchBar {
+      background-color: #f3f3f3;
+      border: none;
+      padding: 1rem;
+      width: 80%;
+      font-size: map-get($font-size, popis);
+      border-radius: 5px;
+      color: $tercial;
+      display: inline-block;
+      background-image: url(./location.png);
+      background-repeat: no-repeat;
+      background-position: 95%;
+    }
+  }
+
+  .cities {
+    width: 80%;
+    .citiesGroup {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+      @include mobil {
+        margin-top: 0.5rem;
+      }
+      li {
+        color: $secondary;
+        font-size: map-get($font-size, datum);
+        width: 100%;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        @include mobil {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}

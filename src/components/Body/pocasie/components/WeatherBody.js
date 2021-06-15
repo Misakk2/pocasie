@@ -55,43 +55,43 @@ export const WeatherBody = () => {
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
-                    <img src={humidity} alt="humidity" />
-                    <p>{weather?.data?.main.humidity}%</p>
+                    <img className="iconsIkonky" src={humidity} alt="humidity" />
+                    <p className="clouds">{weather?.data?.main.humidity}%</p>
                     <p className="description">Humidity</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
-                    <img src={barometer} alt="barometer" />
-                    <p>{weather?.data?.main.pressure}mBar</p>
+                    <img className="iconsIkonky" src={barometer} alt="barometer" />
+                    <p className="clouds">{weather?.data?.main.pressure}mBar</p>
                     <p className="description">Pressure</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
-                    <img src={wind} alt="wind" />
-                    <p>{weather?.data?.wind?.speed}km/h</p>
+                    <img className="iconsIkonky" src={wind} alt="wind" />
+                    <p className="clouds">{weather?.data?.wind?.speed}km/h</p>
                     <p className="description">Wind</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.sys?.sunrise}>
-                    <img src={sunrise} alt="sunrise" />
-                    <p>{new Date(weather?.data?.sys?.sunrise * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <img className="iconsIkonky" src={sunrise} alt="sunrise" />
+                    <p className="clouds">{new Date(weather?.data?.sys?.sunrise * 1000).toLocaleTimeString("en-US", { timeStyle: 'short' })}</p>
                     <p className="description">Sunrise</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.sys?.sunset}>
-                    <img src={sunset} alt="sunset" />
-                    <p>{new Date(weather?.data?.sys?.sunset * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <img className="iconsIkonky" src={sunset} alt="sunset" />
+                    <p className="clouds">{new Date(weather?.data?.sys?.sunset * 1000).toLocaleTimeString("en-US", { timeStyle: 'short' })}</p>
                     <p className="description">Sunset</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id + weather?.data?.dt}>
-                    <img src={daytime} alt="daytime" />
-                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
+                    <img className="iconsIkonky" src={daytime} alt="daytime" />
+                    <p className="clouds">{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
                     <p className="description">Daytime</p>
                 </WeatherValue>
             </ValueBox>

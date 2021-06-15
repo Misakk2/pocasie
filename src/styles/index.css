@@ -1,54 +1,18 @@
-body {
-  background-color: white;
-  font-family: "Barlow", sans-serif;
-  margin: 0;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-@media screen and (max-width: 1024px) {
-  .container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-@media (max-width: 800px) {
-  .container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-.container .header {
+.header {
   -webkit-box-flex: 0.5;
       -ms-flex: 0.5;
           flex: 0.5;
 }
 
 @media (max-width: 800px) {
-  .container .header {
+  .header {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
 }
 
-.container .header .head {
+.header .head {
   width: 100%;
   -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
           box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
@@ -57,13 +21,13 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  .container .header .head {
+  .header .head {
     border-radius: 0;
     min-height: 20vh;
   }
 }
 
-.container .header .head .pocasie__obrazok {
+.header .head .pocasie__obrazok {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -75,7 +39,7 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  .container .header .head .pocasie__obrazok {
+  .header .head .pocasie__obrazok {
     border-radius: 0;
     -o-object-position: top;
        object-position: top;
@@ -84,29 +48,143 @@ p {
   }
 }
 
-.container .pocasie {
-  -webkit-box-flex: 0.5;
-      -ms-flex: 0.5;
-          flex: 0.5;
+.searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  max-height: 100%;
 }
 
 @media screen and (max-width: 1024px) {
-  .container .pocasie {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+  .searchBox {
+    min-height: 74.5vh;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
   }
 }
 
 @media (max-width: 800px) {
-  .container .pocasie {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+  .searchBox {
+    min-height: 74.5vh;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin-top: -5rem;
+    background-color: white;
+    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
   }
 }
 
-.container .pocasie .weather {
+.searchBox h3 {
+  color: #999999;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .searchBox h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .searchBox h3 {
+    font-size: 1rem;
+  }
+}
+
+.searchBox .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.searchBox .search .searchBar {
+  background-color: #f3f3f3;
+  border: none;
+  padding: 1rem;
+  width: 80%;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: #999999;
+  display: inline-block;
+  background-image: url(./location.png);
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+
+.searchBox .cities {
+  width: 80%;
+}
+
+.searchBox .cities .citiesGroup {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+@media (max-width: 800px) {
+  .searchBox .cities .citiesGroup {
+    margin-top: 0.5rem;
+  }
+}
+
+.searchBox .cities .citiesGroup li {
+  color: #666666;
+  font-size: 1.1rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .searchBox .cities .citiesGroup li {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+.weather {
   height: 100%;
   margin: auto;
   display: -webkit-box;
@@ -118,7 +196,7 @@ p {
           flex-direction: column;
 }
 
-.container .pocasie .weather .content {
+.weather .content {
   width: 80%;
   height: 100%;
   margin: auto;
@@ -135,7 +213,7 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  .container .pocasie .weather .content {
+  .weather .content {
     width: 100%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
@@ -151,7 +229,7 @@ p {
 }
 
 @media (max-width: 800px) {
-  .container .pocasie .weather .content {
+  .weather .content {
     width: 100%;
     border-radius: 25px 25px 0px 0px;
     background-color: white;
@@ -166,7 +244,7 @@ p {
   }
 }
 
-.bar {
+.weather .bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,7 +257,7 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  .bar {
+  .weather .bar {
     margin-top: 0;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -187,14 +265,14 @@ p {
   }
 }
 
-.bar .datum {
+.weather .bar .datum {
   color: #666666;
   font-weight: 400;
   font-size: 1.1rem;
 }
 
 @media screen and (max-width: 1024px) {
-  .bar .datum {
+  .weather .bar .datum {
     font-size: 1rem;
     margin-left: 1rem;
     margin-right: 0.4rem;
@@ -202,12 +280,12 @@ p {
 }
 
 @media (max-width: 390px) {
-  .bar .datum {
+  .weather .bar .datum {
     font-size: 0.8rem;
   }
 }
 
-.bar a {
+.weather .bar a {
   background-color: rgba(13, 159, 234, 0.08);
   color: #0da0ea;
   font-size: 1.1rem;
@@ -221,7 +299,7 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-  .bar a {
+  .weather .bar a {
     font-size: 1rem;
     border-radius: 0px 25px 0px 25px;
     font-weight: 500;
@@ -229,12 +307,12 @@ p {
 }
 
 @media (max-width: 390px) {
-  .bar a {
+  .weather .bar a {
     font-size: 0.8rem;
   }
 }
 
-.bar a:hover {
+.weather .bar a:hover {
   background-color: rgba(13, 159, 234, 0.15);
 }
 
@@ -314,17 +392,25 @@ p {
   }
 }
 
-.weather-box .value .description {
-  font-size: 0.6rem;
-  color: #666666;
-  padding-top: 0.2rem;
-  padding-bottom: 0rem;
-  margin: 0;
+.weather-box .value .value-weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.weather-box .value h3 {
-  padding: 0;
-  margin: 0;
+.weather-box .value .value-weather .iconsIkonky {
+  margin-bottom: 0.5rem;
+}
+
+.weather-box .value .value-weather .clouds {
+  font-weight: 500;
 }
 
 .weather-box .value .teplota {
@@ -339,13 +425,7 @@ p {
           align-items: end;
 }
 
-.weather-box .value .teplota p {
-  font-size: 2rem;
-  color: #666666;
-  font-weight: 400;
-}
-
-.weather-box .value .temp {
+.weather-box .value .teplota .temp {
   font-weight: 400;
   font-size: 5rem;
   line-height: 1;
@@ -353,166 +433,18 @@ p {
 }
 
 @media (max-width: 390px) {
-  .weather-box .value .temp {
+  .weather-box .value .teplota .temp {
     font-size: 3.5rem;
   }
 }
 
-.dayTemp {
-  color: #999999;
-  margin: -1rem;
-}
-
-.value-weather {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.searchBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  border-radius: 25px 25px 0px 0px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 100vh;
-  max-height: 100%;
-}
-
-@media screen and (max-width: 1024px) {
-  .searchBox {
-    min-height: 74.5vh;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    margin-top: -5rem;
-    background-color: white;
-    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
-            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-@media (max-width: 800px) {
-  .searchBox {
-    min-height: 76.5vh;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    margin-top: -5rem;
-    background-color: white;
-    -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
-            box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.searchBox .search {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-}
-
-.searchBox .search .searchBar {
-  background-color: #f3f3f3;
-  border: none;
-  padding: 1rem;
-  width: 80%;
-  font-size: 1rem;
-  border-radius: 5px;
-  color: #999999;
-  display: inline-block;
-  background-image: url(./location.png);
-  background-repeat: no-repeat;
-  background-position: 95%;
-}
-
-.searchBox h3 {
-  color: #999999;
-  font-weight: 500;
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-
-@media screen and (max-width: 1024px) {
-  .searchBox h3 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .searchBox h3 {
-    font-size: 1rem;
-  }
-}
-
-.cities {
-  width: 80%;
-}
-
-.cities ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 2rem;
-}
-
-@media (max-width: 800px) {
-  .cities ul {
-    margin-top: 0.5rem;
-  }
-}
-
-.cities ul li {
+.weather-box .value .teplota p {
+  font-size: 2rem;
   color: #666666;
-  font-size: 1.1rem;
-  width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  cursor: pointer;
-  margin-top: 0.5rem;
+  font-weight: 400;
 }
 
-@media (max-width: 800px) {
-  .cities ul li {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin-top: 1rem;
-  }
-}
-
-.dailyWeather {
+.weather-box .value .dailyWeather {
   background-color: white;
   -webkit-box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
           box-shadow: 5px -7px 25px rgba(0, 0, 0, 0.2);
@@ -533,17 +465,22 @@ p {
 }
 
 @media (max-width: 800px) {
-  .dailyWeather {
+  .weather-box .value .dailyWeather {
     padding: 0.5vw;
     padding-bottom: 1vw;
   }
 }
 
 @media (max-width: 390px) {
-  .dailyWeather {
+  .weather-box .value .dailyWeather {
     padding: 0.5vw;
     width: 5rem;
   }
+}
+
+.dayTemp {
+  color: #999999;
+  margin: -1rem;
 }
 
 .dailyWeatherTemp {
@@ -557,7 +494,74 @@ p {
   padding-left: 0.2rem;
 }
 
-.clouds {
-  font-weight: 500;
+body {
+  background-color: white;
+  font-family: "Barlow", sans-serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.container .pocasie {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+
+@media screen and (max-width: 1024px) {
+  .container .pocasie {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .container .pocasie {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+.description {
+  font-size: 0.6rem;
+  color: #666666;
+  padding-top: 0.2rem;
+  padding-bottom: 0rem;
+  margin: 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
 }
 /*# sourceMappingURL=index.css.map */

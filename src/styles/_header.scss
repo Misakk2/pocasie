@@ -1,0 +1,54 @@
+@mixin flex($justify, $direction, $wrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin mobil {
+  @media (max-width: $mobil) {
+    @content;
+  }
+}
+@mixin xs-mobil {
+  @media (max-width: $xs-mobil) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+.header {
+  flex: 0.5;
+  @include mobil {
+    flex: 1;
+  }
+  .head {
+    width: 100%;
+    box-shadow: $shadow;
+    border-radius: 0px 25px 25px 0px;
+    min-height: 100vh;
+    @include tablet {
+      border-radius: 0;
+      min-height: 20vh;
+    }
+    .pocasie__obrazok {
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+      overflow: hidden;
+      border-radius: 0px 25px 25px 0px;
+      min-height: 99.6vh;
+      @include tablet {
+        border-radius: 0;
+        object-position: top;
+        min-height: 35vh;
+        max-height: 35vh;
+      }
+    }
+  }
+}

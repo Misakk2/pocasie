@@ -32,7 +32,7 @@ export const Bar = () => {
             <div className="datum">
                 <p>{dateBuilder(new Date())}</p>
             </div>
-            <a onClick={(e) => setCurrentCity('')} > {currentCity.city}, {currentCity.state} < span > <img src={location} alt /></span></a>
+            <a onClick={(e) => setCurrentCity('')} > {currentCity.city}, {currentCity.state} < span > <img src={location} alt="location" /></span></a>
         </div >
     )
 }
