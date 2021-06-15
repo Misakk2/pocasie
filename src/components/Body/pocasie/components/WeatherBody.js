@@ -20,7 +20,7 @@ export const WeatherBody = () => {
     const [weather, setWeather] = useState({});
     const { currentCity } = useContext(CurrentContext);
     const [days, setDays] = useState({});
-
+    const options = { day: 'numeric' }
 
     useEffect(() => {
         async function getWeather() {
@@ -104,14 +104,14 @@ export const WeatherBody = () => {
             {!days?.data?.length ?
                 days?.data?.daily.slice(0, 3)?.map(day =>
                     <ValueBox key={day?.id}>
-                        <WeatherValue>
+                        <div className="dailyWeather">
                             <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main} />
-                            <p>{new Date(day?.dt * 1000).toLocaleDateString(undefined, {})}</p>
-                            <div>
+                            <p>{new Date(day?.dt * 1000).toLocaleDateString("en-US", { weekday: 'short' })}, {new Date(day?.dt * 1000).toLocaleDateString("en-US", { day: 'numeric' })}</p>
+                            <div className="dailyWeatherTemp">
                                 <p className="description">{Math.round(day.temp.max)}<img src={arrowUp} alt="arrow" /></p>
                                 <p className="description">{Math.round(day.temp.min)}<img src={arrowDown} alt="arrow" /></p>
                             </div>
-                        </WeatherValue>
+                        </div>
                     </ValueBox>
                 ) : <></>}
         </WeatherBox>

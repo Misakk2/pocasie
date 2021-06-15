@@ -21,11 +21,11 @@ export const Search = () => {
     const getCityWeathers = () => {
         axios.all([
             axios.get([ba]),
+            axios.get([he]),
+            axios.get([ko]),
             axios.get([ke]),
             axios.get([mi]),
             axios.get([so]),
-            axios.get([ko]),
-            axios.get([he]),
         ]).then(
             axios.spread((...vsetkyData) => {
                 setCity(vsetkyData)
@@ -36,6 +36,7 @@ export const Search = () => {
 
     useEffect(() => {
         getCityWeathers()
+
     }, [])
 
 
