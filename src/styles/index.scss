@@ -154,6 +154,7 @@ p {
     border-radius: 25px;
     transition: ease-in 200ms;
     text-decoration: none;
+    cursor: pointer;
     @include tablet {
       font-size: size(datum-mobil);
       border-radius: 0px 25px 0px 25px;

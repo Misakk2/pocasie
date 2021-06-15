@@ -217,6 +217,7 @@ p {
   -webkit-transition: ease-in 200ms;
   transition: ease-in 200ms;
   text-decoration: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
