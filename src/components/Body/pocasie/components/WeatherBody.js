@@ -41,7 +41,7 @@ export const WeatherBody = () => {
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
                     <img src={iconUrl} alt={weather?.data?.weather[0].icon} />
-                    <p>{weather?.data?.weather[0]?.main}</p>
+                    <p className="clouds">{weather?.data?.weather[0]?.main}</p>
                 </WeatherValue>
             </ValueBox>
             <ValueBox>
@@ -91,7 +91,7 @@ export const WeatherBody = () => {
             <ValueBox>
                 <WeatherValue key={weather?.data?.weather[0].id}>
                     <img src={daytime} alt="daytime" />
-                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { hours: "numeric" })}</p>
+                    <p>{new Date(weather?.data?.dt * 1000).toLocaleTimeString(undefined, { timeStyle: 'short' })}</p>
                     <p className="description">Daytime</p>
                 </WeatherValue>
             </ValueBox>

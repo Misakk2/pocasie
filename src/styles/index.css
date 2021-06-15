@@ -223,7 +223,7 @@ p {
   .bar a {
     font-size: 1rem;
     border-radius: 0px 25px 0px 25px;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -454,7 +454,7 @@ p {
 
 .searchBox h3 {
   color: #999999;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.5rem;
   padding: 1rem;
 }
@@ -554,5 +554,9 @@ p {
 .dailyWeatherTemp p {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
+}
+
+.clouds {
+  font-weight: 500;
 }
 /*# sourceMappingURL=index.css.map */
