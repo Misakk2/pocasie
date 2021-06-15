@@ -26,7 +26,6 @@ export const WeatherBody = () => {
         async function getWeather() {
             const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${currentCity.city},${currentCity.state}&units=metric&appid=${api}`)
             setWeather(res)
-            console.log(res)
         }
         getWeather()
     }, [currentCity]);
@@ -35,7 +34,6 @@ export const WeatherBody = () => {
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${currentCity.lat}&lon=${currentCity.lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=${api}`)
             .then(day => {
                 setDays(day);
-                console.log(day)
             })
     }, [currentCity]);
 
