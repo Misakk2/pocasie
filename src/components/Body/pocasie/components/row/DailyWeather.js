@@ -26,8 +26,8 @@ export const DailyWeather = () => {
         <>
             {!days?.data?.length ?
                 days?.data?.daily.slice(0, 3)?.map(day =>
-                    <ValueBox key={day?.id + currentCity.lat + currentCity.lon}>
-                        <div className="dailyWeather">
+                    <ValueBox>
+                        <div key={day?.id + day.temp.max + day.temp.min} className="dailyWeather">
                             <img src={imageUrl + day.weather[0].icon + imageEnd} alt={day.weather[0].main.toString()} />
                             <p>{new Date(day?.dt * 1000).toLocaleDateString("en-US", { weekday: 'short' })}, {new Date(day?.dt * 1000).toLocaleDateString("en-US", { day: 'numeric' })}</p>
                             <div className="dailyWeatherTemp">

@@ -17,14 +17,14 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <Header />
+        <Header key="Header" />
       </div>
       <div className="pocasie">
         {transition((style, item) =>
           item ? <animated.div style={style}> <Search key="search" /></animated.div> : ''
         )}
         {currentCity.city !== undefined ?
-          <Weather /> : <Weather style={{ display: 'none' }} />
+          <Weather key="Weather" /> : <Weather key="Weather" style={{ display: 'none' }} />
         }
       </div>
     </div>

@@ -39,7 +39,7 @@ export const Search = () => {
         <div className="searchBox">
             <h3>Location</h3>
             <div className="search">
-                <SearchBar onChange={e => { setSearch(e.target.value) }} />
+                <SearchBar key="searchBar" onChange={e => { setSearch(e.target.value) }} />
                 <CitiesGroup>
                     {city.filter(mesto => {
                         if (search === "") {
